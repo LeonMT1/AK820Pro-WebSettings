@@ -167,12 +167,12 @@ export function App() {
     [replace, setReplace] = useState(false),
     [historyItems, setHistory] = useState<Upload[]>([]);
   const [presets, setPresets] = useState<Preset[]>(() => {
-      try {
-        return parsePresets(readLocal("ak820-presets", []));
-      } catch {
-        return [];
-      }
-    }),
+    try {
+      return parsePresets(readLocal("ak820-presets", []));
+    } catch {
+      return [];
+    }
+  }),
     [presetName, setPresetName] = useState("My setup");
   const canvas = useRef<HTMLCanvasElement>(null),
     cancel = useRef<AbortController | undefined>(undefined);
@@ -408,7 +408,7 @@ export function App() {
           >
             Protocol credits ↗
           </a>
-          <small>Made by LeonMT1</small>
+          <small><a href="https://github.com/LeonMT1/AK820Pro-WebSettings" target="_blank" rel="noreferrer">Made open source by LeonMT1 ↗</a></small>
         </footer>
       </aside>
       <main id="main">
